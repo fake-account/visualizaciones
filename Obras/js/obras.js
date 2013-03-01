@@ -156,7 +156,7 @@ function initControls() {
 
     $('#radioset-estado').tooltip({
       selector: "input[data-toggle=tooltip]"
-    }
+    });
 
 		$( "#slider-range" ).slider({
 			range: true,
