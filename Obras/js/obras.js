@@ -154,9 +154,7 @@ function initControls() {
 		});
 
 
-    $('#radioset-estado').tooltip({
-      selector: "input[data-toggle=tooltip]"
-    });
+    $('#radioset-estado label').tooltip();
 
 		$( "#slider-range" ).slider({
 			range: true,
