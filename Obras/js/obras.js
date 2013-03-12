@@ -156,6 +156,8 @@ function initControls() {
 
     $('#radioset-estado label').tooltip();
 
+    $('.explicacion a').tooltip();
+
 		$( "#slider-range" ).slider({
 			range: true,
 			min: 0,
