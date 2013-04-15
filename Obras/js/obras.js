@@ -41,6 +41,7 @@ function updateMap() {
   //tipo = $("input[name=radioTipo]:checked").val();
   estado = $("input[name=radioEstado]:checked").val();
   firstDate = $("#datePickerStart").datepicker("getDate");
+
   lastDate = $("#datePickerEnd").datepicker("getDate")
   //tipo_sql = ""
 
@@ -91,6 +92,39 @@ function updateSlider(minDate) {
 // you could use $(window).load(main);
 window.onload = main;
 
+/* Inicialización en español para la extensión 'UI date picker' para jQuery. */
+/* Traducido por Vester (xvester@gmail.com). */
+(function($) {
+        $.datepicker.regional['es'] = {
+                renderer: $.ui.datepicker.defaultRenderer,
+                monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+                'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+                monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
+                'Jul','Ago','Sep','Oct','Nov','Dic'],
+                dayNames: ['Domingo','Lunes','Martes','Mi&eacute;rcoles','Jueves','Viernes','S&aacute;bado'],
+                dayNamesShort: ['Dom','Lun','Mar','Mi&eacute;','Juv','Vie','S&aacute;b'],
+                dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','S&aacute;'],
+                dateFormat: 'dd/mm/yy',
+                firstDay: 1,
+                prevText: '&#x3c;Ant', prevStatus: '',
+                prevJumpText: '&#x3c;&#x3c;', prevJumpStatus: '',
+                nextText: 'Sig&#x3e;', nextStatus: '',
+                nextJumpText: '&#x3e;&#x3e;', nextJumpStatus: '',
+                currentText: 'Hoy', currentStatus: '',
+                todayText: 'Hoy', todayStatus: '',
+                clearText: '-', clearStatus: '',
+                closeText: 'Cerrar', closeStatus: '',
+                yearStatus: '', monthStatus: '',
+                weekText: 'Sm', weekStatus: '',
+                dayStatus: 'DD d MM',
+                defaultStatus: '',
+                isRTL: false
+        };
+        $.extend($.datepicker.defaults, $.datepicker.regional['es']);
+        
+})(jQuery);
+
+
 
 function initControls() {
 
@@ -126,6 +160,8 @@ function initControls() {
 
   		$("#datePickerStart").datepicker({ defaultDate: -minus, minDate: -minus, maxDate: max});
 		$("#datePickerStart").datepicker( "setDate", minDate );
+    $("#datePickerStart" ).datepicker( "option", $.datepicker.regional[ "es" ] );
+    
 		$("#datePickerStart").change(function(eventData) {
 			updateSlider(minDate);
 			updateMap();
@@ -133,6 +169,7 @@ function initControls() {
 
 		$("#datePickerEnd").datepicker({ defaultDate: max, minDate: -minus, maxDate: max});
 		$("#datePickerEnd").datepicker( "setDate", maxDate);
+    $("#datePickerEnd" ).datepicker( "option", $.datepicker.regional[ "es" ] );
 		$("#datePickerEnd").change(function(eventData) {
 			updateSlider(minDate);
 			updateMap();
